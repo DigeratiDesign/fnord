@@ -105,7 +105,7 @@ class DigeratiUtilities {
             if(!target) {
                 return;
             }
-            target.attr('tabindex', '-1');
+            // target.attr('tabindex', '-1');
             target.focus();
         });
     }
