@@ -112,6 +112,15 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 ```
 
+### Concatenate Email Address
+
+Provides basic email address obfuscation.
+
+1. Add `digerati-email-address="target"` attribute to the element which will display the email address.
+2. Add `digerati-email-address-name="joe"` attribute to the same element - update `joe` for actual email address name.
+3. Add `digerati-email-address-domain="bloggs"` attribute to the same element - update `bloggs` for actual email address domain.
+4. Add `digerati-email-address-tld="com"` attribute to the same element - update `com` for actual email address TLD.
+
 ### Display Copyright Year
 <a id="utilities-display-copyright-year"></a>
 
