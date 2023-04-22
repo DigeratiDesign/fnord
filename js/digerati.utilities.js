@@ -6,6 +6,7 @@
  * @author Digerati <cabal@digerati.design>
  */
 class DigeratiUtilities {
+
     /**
      * Create a New Instance.
      *
@@ -39,27 +40,27 @@ class DigeratiUtilities {
      * @return {void}
      */
     displayCopyrightYear() {
-        const yearSpan = document.querySelector('[digerati-copyright-year="target"]');
-        if(!yearSpan) {
+        const target = document.querySelector('[digerati-copyright-year="target"]');
+        if(!target) {
             return;
         }
         const currentYear = new Date().getFullYear();
-        yearSpan.innerText = currentYear.toString();
+        target.innerText = currentYear.toString();
     }
-  	
-  	/**
+    
+    /**
      * Focus Search Form Field.
      *
      * @return {void}
      */
-  	focusSearchFormField() {
-        const showSearchFormTrigger = document.querySelector('[digerati-search-form-field-focus="trigger"]');
-        showSearchFormTrigger.addEventListener('click', function() {
-            const searchFormField = document.querySelector('[digerati-search-form-field-focus="target"]');
-            if(!searchFormField) {
+    focusSearchFormField() {
+        const trigger = document.querySelector('[digerati-search-form-field-focus="trigger"]');
+        trigger.addEventListener('click', function() {
+            const target = document.querySelector('[digerati-search-form-field-focus="target"]');
+            if(!target) {
                 return;
             }
-            searchFormField.focus();
+            target.focus();
         });
     }
   
@@ -81,14 +82,15 @@ class DigeratiUtilities {
      * @return {void}             
      */
     skipToMainContent() {
-        $('#skip-to-main').on('click keydown', function(e) {
-            if (e.type === "keydown" && e.which !== 13) {
+        const trigger = document.querySelector('[digerati-skip-to-main="trigger"]');
+        trigger.addEventListener('click', function() {
+            if (e.type === 'keydown' && e.which !== 13) {
                 return;
             }
             e.preventDefault();
-            const $target = $('#main');
-            $target.attr('tabindex', '-1');
-            $target.focus();
+            const target = document.querySelector('[digerati-skip-to-main="target"]');
+            target.attr('tabindex', '-1');
+            target.focus();
         });
     }
 }
