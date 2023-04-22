@@ -72,7 +72,6 @@ class DigeratiUtilities {
   	focusSearchFormField() {
     	$('.js-trigger_show-search').on('click', function(e) {
           	const searchFormField = document.querySelector('[digerati-search-form-field]');
-		    const searchFormField = $('.search-form_form-field');
           	if(!searchFormField) {
                 return;
             }
