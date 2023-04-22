@@ -26,7 +26,8 @@ class DigeratiUtilities {
      * @return {void}
      */
     concatenateEmailAddresses() {
-        
+    	alert('concatenateEmailAddresses');
+    	console.log('concatenateEmailAddresses');
     }
     
     /**
@@ -39,6 +40,8 @@ class DigeratiUtilities {
      * @return {void}
      */
   	displayCopyrightYear() {
+  		alert('displayCopyrightYear');
+  		console.log('displayCopyrightYear');
         const yearSpan = document.querySelector('[fs-hacks-element="year"]');
         if(!yearSpan) {
             return;
@@ -47,31 +50,15 @@ class DigeratiUtilities {
         yearSpan.innerText = currentYear.toString();
     }
   	
-    /**
-     * Skip to Main Content.
-     *
-     * @return {void}             
-     */
-  	skipToMainContent() {
-	    $('#skip-to-main').on('click keydown', function(e) {
-		    if (e.type === "keydown" && e.which !== 13) {
-			    return;
-		    }
-		    e.preventDefault();
-		    const $target = $('#main');
-		    $target.attr('tabindex', '-1');
-      	    $target.focus();
-	    });
-    }
-  	
   	/**
      * Focus Search Form Field.
      *
      * @return {void}
      */
   	focusSearchFormField() {
-    	$('.js-trigger_show-search').on('click', function(e) {
-          	const searchFormField = document.querySelector('[digerati-search-form-field]');
+  		const showSearchFormTrigger = document.querySelector('[digerati-search-form-field-focus="trigger"]');
+  		showSearchFormTrigger.addEventListener('click', function() {
+	    	const searchFormField = document.querySelector('[digerati-search-form-field-focus="target"]');
           	if(!searchFormField) {
                 return;
             }
@@ -85,9 +72,26 @@ class DigeratiUtilities {
      * @return {void}             
      */
   	init() {
-      	this.concatenateEmailAddresses;
-        this.displayCopyrightYear;
-      	this.skipToMainContent;
-      	this.focusSearchFormField;
+      	this.concatenateEmailAddresses();
+        this.displayCopyrightYear();
+      	this.skipToMainContent();
+      	this.focusSearchFormField();
+    }
+
+    /**
+     * Skip to Main Content.
+     *
+     * @return {void}             
+     */
+    skipToMainContent() {
+	    $('#skip-to-main').on('click keydown', function(e) {
+		    if (e.type === "keydown" && e.which !== 13) {
+			    return;
+		    }
+		    e.preventDefault();
+		    const $target = $('#main');
+		    $target.attr('tabindex', '-1');
+      	    $target.focus();
+	    });
     }
 }
