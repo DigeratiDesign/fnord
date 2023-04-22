@@ -26,7 +26,7 @@ Ensure you've copied the **Digerati Form Validation Style Guide** into the **Fin
 Add the following to the **Header Code** section of either a given page or **Project Settings** > **Custom Code**:
 
 ```htm
-<script defer src="https://fnord.digerati.design/digerati.form-validation.js"></script>
+<script defer src="https://fnord.digerati.design/js/digerati.form-validation.js"></script>
 ```
 
 Add the following to the corresponding **Footer Code** section:
@@ -68,7 +68,7 @@ Ensure you've copied the **Digerati Page Transition Style Guide** into the **Fin
 Add the following to the **Header Code** section of either a given page or **Project Settings** > **Custom Code**:
 
 ```htm
-<script defer src="https://fnord.digerati.design/digerati.page-transitions.js"></script>
+<script defer src="https://fnord.digerati.design/js/digerati.page-transitions.js"></script>
 ```
 
 Add the following to the corresponding **Footer Code** section:
@@ -98,7 +98,7 @@ ES6 Utilities class for Webflow.
 Add the following to the **Header Code** section of either a given page or **Project Settings** > **Custom Code**:
 
 ```htm
-<script defer src="https://fnord.digerati.design/digerati.page-transitions.js"></script>
+<script defer src="https://fnord.digerati.design/js/digerati.page-transitions.js"></script>
 ```
 
 Add the following to the corresponding **Footer Code** section:
