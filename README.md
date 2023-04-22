@@ -87,8 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
 ES6 Utilities class for Webflow.
 
 * [Installation](#utilities-installation)
+* [Concatenate Email Addresses](#utilities-concatenate-email-addresses)
 * [DisplayCopyrightYear](#utilities-display-copyright-year)
-* [Compile Email Addresses](#utilities-compile-email-addresses)
 * [Focus Search Form Field](#utilities-focus-search-form-field)
 * [Skip to Main Content](#utilities-skip-to-main-content)
 
