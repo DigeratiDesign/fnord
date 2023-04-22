@@ -137,4 +137,7 @@ Add the following **Attributes**:
 ### Skip to Main Content
 <a id="utilities-skip-to-main-content"></a>
 
-_Coming soon..._
+Add _Skip to main content_ accessibility link which is displayed when tabbed.
+
+1. Add `digerati-skip-to-main-content="trigger"` attribute and the `no-transition` class to the element which triggers the display of the **skip to main content link**.
+2. Add `digerati-skip-to-main-content="target"` attribute to the element which should be focused.
