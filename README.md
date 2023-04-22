@@ -112,7 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 ```
 
-### Concatenate Email Address
+### Concatenate Email Addresses
+<a id="utilties-concatenate-email-addresses"></a>
 
 Provides basic email address obfuscation.
 
@@ -127,11 +128,6 @@ Provides basic email address obfuscation.
 Add the following **Attribute**":
 
 1. Add `digerati-copyright-year="target"` attribute to the element which will display the copyright year.
-
-### Compile Email Addresses
-<a id="utilties-compile-email-addresses"></a>
-
-_Coming soon..._
 
 ### Focus Search Form Field
 <a id="utilities-focus-search-form-field"></a>
