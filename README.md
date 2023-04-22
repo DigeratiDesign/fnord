@@ -115,7 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
 ### Display Copyright Year
 <a id="utilities-display-copyright-year"></a>
 
-_Coming soon..._
+Add the following **Attribute**":
+
+1. Add `digerati-copyright-year="target"` attribute to the element which will display the copyright year.
 
 ### Compile Email Addresses
 <a id="utilties-compile-email-addresses"></a>
@@ -125,7 +127,12 @@ _Coming soon..._
 ### Focus Search Form Field
 <a id="utilities-focus-search-form-field"></a>
 
-_Coming soon..._
+Automatically focuses the **search form field** which when the **search form** is displayed.
+
+Add the following **Attributes**:
+
+1. Add `digerati-search-form-field-focus="trigger"` attribute and the `no-transition` class to the element which triggers the display of the **search form**.
+2. Add `digerati-search-form-field-focus="target"` attribute to the **search form field**.
 
 ### Skip to Main Content
 <a id="utilities-skip-to-main-content"></a>
