@@ -26,8 +26,18 @@ class DigeratiUtilities {
      * @return {void}
     */
     concatenateEmailAddresses() {
-        alert('concatenateEmailAddresses');
-        console.log('concatenateEmailAddresses');
+        const target = document.querySelector('[digerati-email-address="target"]');
+        if(!target) {
+            return;
+        }
+        const name = target.digeratiEmailAddressName,
+            domain = target.digeratiEmailAddressDomain,
+            tld = digerati.digeratiEmailAddressTld;
+        if(!name || !domain || !tld) {
+            return;
+        }
+        const emailAddress = name + '@' + domain + '.' + tld;
+        target.innerText = emailAddress;
     }
     
     /**
@@ -82,13 +92,19 @@ class DigeratiUtilities {
      * @return {void}             
      */
     skipToMainContent() {
-        const trigger = document.querySelector('[digerati-skip-to-main="trigger"]');
-        trigger.addEventListener('click', function() {
+        const trigger = document.querySelector('[digerati-skip-to-main-content="trigger"]');
+        if(!trigger) {
+            return;
+        }
+        trigger.addEventListener('click', function(e) {
             if (e.type === 'keydown' && e.which !== 13) {
                 return;
             }
             e.preventDefault();
-            const target = document.querySelector('[digerati-skip-to-main="target"]');
+            const target = document.querySelector('[digerati-skip-to-main-content="target"]');
+            if(!target) {
+                return;
+            }
             target.attr('tabindex', '-1');
             target.focus();
         });
