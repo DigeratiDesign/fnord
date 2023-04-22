@@ -85,6 +85,7 @@ class DigeratiUtilities {
      * @return {void}             
      */
   	init() {
+      	this.concatenateEmailAddresses;
         this.displayCopyrightYear;
       	this.skipToMainContent;
       	this.focusSearchFormField;
