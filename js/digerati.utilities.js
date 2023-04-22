@@ -101,7 +101,8 @@ class DigeratiUtilities {
                 return;
             }
             e.preventDefault();
-            const target = document.querySelector('[digerati-skip-to-main-content="target"]');
+            const = $('[digerati-skip-to-main-content="target"]');
+            //const target = document.querySelector('[digerati-skip-to-main-content="target"]');
             if(!target) {
                 return;
             }
