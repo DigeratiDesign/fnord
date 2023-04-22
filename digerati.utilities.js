@@ -29,7 +29,7 @@ class DigeratiUtilities {
         
     }
     
-  	/**
+    /**
      * Display Copyright Year
      *
      * F'in Sweet WebFlow Hacks - Current year in footer
