@@ -12,19 +12,31 @@ class DigeratiUtilities {
      *
      * @return {void} 
      */
-  	constructor() {
-      	this.displayCopyrightYear = this.displayCopyrightYear.bind(this);
-      	this.focusSearchFormField = this.focusSearchFormField.bind(this);
+    constructor() {
+        this.concatenateEmailAddresses = this.concatenateEmailAddresses.bind(this);
+        this.displayCopyrightYear = this.displayCopyrightYear.bind(this);
+        this.focusSearchFormField = this.focusSearchFormField.bind(this);
       	this.init = this.init.bind(this);
       	this.skipToMainContent = this.skipToMainContent.bind(this);
     }
   
+    /**
+     * Concatenate Email Addresses.
+     *
+     * @return {void}
+     */
+    concatenateEmailAddresses() {
+        
+    }
+    
   	/**
      * Display Copyright Year
      *
      * F'in Sweet WebFlow Hacks - Current year in footer
      * 
      * @link https://finsweet.com/hacks-typescript/hacks/automatically-show-current-year-in-footer-with-span-and-js 
+     *
+     * @return {void}
      */
   	displayCopyrightYear() {
         const yearSpan = document.querySelector('[fs-hacks-element="year"]');
