@@ -32,7 +32,7 @@ class DigeratiUtilities {
         }
         const name = target.digeratiEmailAddressName,
             domain = target.digeratiEmailAddressDomain,
-            tld = digerati.digeratiEmailAddressTld;
+            tld = target.digeratiEmailAddressTld;
         if(!name || !domain || !tld) {
             return;
         }
