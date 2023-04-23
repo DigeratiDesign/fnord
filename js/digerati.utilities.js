@@ -30,14 +30,19 @@ class DigeratiUtilities {
         if(!target) {
             return;
         }
-        const name = target.digeratiEmailAddressName,
-            domain = target.digeratiEmailAddressDomain,
-            tld = target.digeratiEmailAddressTld;
+        const name = target.getAttribute('digerati-email-address-name'),
+            domain = target.getAttribute('digerati-email-address-domain'),
+            tld = target.getAttribute('digerati-email-address-tld'),
+            subject = target.getAttribute('digerati-email-address-subject');
         if(!name || !domain || !tld) {
             return;
         }
-        const emailAddress = name + '@' + domain + '.' + tld;
+        let emailAddress = name + '@' + domain + '.' + tld;
         target.innerText = emailAddress;
+        if(subject) {
+            emailAddress = emailAddress + '?subject=' + encodeURIComponent(subject);
+        }
+        target.href = 'mailto:' + emailAddress;
     }
     
     /**
