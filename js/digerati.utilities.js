@@ -15,6 +15,7 @@ class DigeratiUtilities {
     constructor() {
         this.concatenateEmailAddresses = this.concatenateEmailAddresses.bind(this);
         this.displayCopyrightYear = this.displayCopyrightYear.bind(this);
+        this.displaySearchTermInResultsPage = this.displaySearchTermInResultsPage.bind(this);
         this.focusSearchFormField = this.focusSearchFormField.bind(this);
         this.init = this.init.bind(this);
         this.skipToMainContent = this.skipToMainContent.bind(this);
@@ -64,6 +65,22 @@ class DigeratiUtilities {
     }
     
     /**
+     * Display Search Term in Results Page.
+     *
+     * @link https://discourse.webflow.com/t/show-search-term-on-search-result-page/124408/4
+     * 
+     * @return {void} 
+     */
+    displaySearchTermInResultsPage() {
+        const searchTermTarget = document.querySelector('[digerati-search-term="target"]');
+        if(searchTermTarget) {
+            const urlParams = new URLSearchParams(window.location.search),
+                searchQuery = urlParams.get('query');
+            searchTermTarget.innerHTML = searchQuery;
+        }
+    }
+    
+    /**
      * Focus Search Form Field.
      *
      * @return {void}
@@ -87,8 +104,9 @@ class DigeratiUtilities {
     init() {
         this.concatenateEmailAddresses();
         this.displayCopyrightYear();
-        this.skipToMainContent();
+        this.displaySearchTermInResultsPage();
         this.focusSearchFormField();
+        this.skipToMainContent();
     }
 
     /**
