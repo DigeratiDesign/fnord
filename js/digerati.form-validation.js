@@ -106,23 +106,20 @@ class DigeratiFormValidation {
      */
     handleSubmitEvent(e) {
         const submitButton = e.target,
-            parentForm = submitButton.closest('form'),
-            novalidate = parentForm.getAttribute('novalidate');
-        if (novalidate !== '') {
-            e.preventDefault();
-            const formFields = parentForm.querySelectorAll('input:not([type="submit"]), textarea, select');
-            let formError = false;
-            formFields.forEach((formField) => {
-                const isValidField = this.validateFormField(formField);
-                if (!isValidField) {
-                    formError = true;
-                }
-            });
-            if (!formError) {
-                submitButton.removeEventListener('click', this.handleSubmitEvent);
-                submitButton.removeEventListener('touchstart', this.handleSubmitEvent);
-                submitButton.dispatchEvent(new Event('click'));
+            parentForm = submitButton.closest('form');
+        e.preventDefault();
+        const formFields = parentForm.querySelectorAll('input:not([type="submit"]), textarea, select');
+        let formError = false;
+        formFields.forEach((formField) => {
+            const isValidField = this.validateFormField(formField);
+            if (!isValidField) {
+                formError = true;
             }
+        });
+        if (!formError) {
+            submitButton.removeEventListener('click', this.handleSubmitEvent);
+            submitButton.removeEventListener('touchstart', this.handleSubmitEvent);
+            submitButton.dispatchEvent(new Event('click'));
         }
     }
 
@@ -308,45 +305,50 @@ class DigeratiFormValidation {
      * @return {void} 
      */
     init() {
-        /* Submit Button Event Listeners */
-        const submitButtons = document.querySelectorAll('input[type=submit]');
-        submitButtons.forEach((submitButton) => {
-	        submitButton.addEventListener('click', this.handleSubmitEvent);
-	        submitButton.addEventListener('touchstart', this.handleSubmitEvent);
-        });
-        /* Input and Textarea Field Event Listeners */
-        const inputAndTextareaFields = document.querySelectorAll('input:not([type="submit"]), textarea');
-            inputAndTextareaFields.forEach((formField) => {
-                formField.addEventListener('focus', () => {
-                formField.removeEventListener('blur', this.triggerFormFieldValidation);
-                formField.removeEventListener('keyup', this.triggerFormFieldValidation);
-                formField.addEventListener('blur', () => {
-                    this.triggerFormFieldValidation(formField);
+        const forms = document.querySelectorAll('form');
+        forms.forEach((form) => {
+            if(!form.getAttribute('novalidate')) {
+                /* Submit Button Event Listeners */
+                const submitButtons = form.querySelectorAll('input[type=submit]');
+                submitButtons.forEach((submitButton) => {
+                    submitButton.addEventListener('click', this.handleSubmitEvent);
+                    submitButton.addEventListener('touchstart', this.handleSubmitEvent);
                 });
-                formField.addEventListener('keyup', () => {
-                    this.triggerFormFieldValidation(formField)
+                /* Input and Textarea Field Event Listeners */
+                const inputAndTextareaFields = form.querySelectorAll('input:not([type="submit"]), textarea');
+                inputAndTextareaFields.forEach((formField) => {
+                    formField.addEventListener('focus', () => {
+                        formField.removeEventListener('blur', this.triggerFormFieldValidation);
+                        formField.removeEventListener('keyup', this.triggerFormFieldValidation);
+                        formField.addEventListener('blur', () => {
+                            this.triggerFormFieldValidation(formField);
+                        });
+                        formField.addEventListener('keyup', () => {
+                            this.triggerFormFieldValidation(formField)
+                        });
+                    });
                 });
-            });
-        });
-        /* Finsweet Custom Select Event Listeners */
-        const selectFields = document.querySelectorAll('select');
-            selectFields.forEach((formField) => {
-                formField.addEventListener('change', () => {
-                this.triggerFormFieldValidation(formField);
-            });
-        });
-        /* Form Field Event Listeners */
-        const formFields = document.querySelectorAll('input, textarea');
-        formFields.forEach((formField) => {
-            formField.addEventListener('keypress', (e) => {
-                if (e.keyCode === 13) {
-                    e.preventDefault();
-                    const parentForm = formField.closest('form'),
-                        submitButton = parentForm.querySelector('input[type="submit"]');
-                    formField.dispatchEvent(new Event('change'));
-                    submitButton.dispatchEvent(new Event('click'));
-                }
-            });
+                /* Finsweet Custom Select Event Listeners */
+                const selectFields = form.querySelectorAll('select');
+                selectFields.forEach((formField) => {
+                    formField.addEventListener('change', () => {
+                        this.triggerFormFieldValidation(formField);
+                    });
+                });
+                /* Form Field Event Listeners */
+                const formFields = form.querySelectorAll('input, textarea');
+                formFields.forEach((formField) => {
+                    formField.addEventListener('keypress', (e) => {
+                        if (e.keyCode === 13) {
+                            e.preventDefault();
+                            const parentForm = formField.closest('form'),
+                                submitButton = parentForm.querySelector('input[type="submit"]');
+                            formField.dispatchEvent(new Event('change'));
+                            submitButton.dispatchEvent(new Event('click'));
+                        }
+                    });
+                });
+            }
         });
     }
 }
