@@ -119,7 +119,7 @@ class DigeratiFormValidation {
         if (!formError) {
             submitButton.removeEventListener('click', this.handleSubmitEvent);
             submitButton.removeEventListener('touchstart', this.handleSubmitEvent);
-            submitButton.dispatchEvent(new Event('click'));
+            submitButton.click();
         }
     }
 
