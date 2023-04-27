@@ -18,6 +18,7 @@ class DigeratiFormValidation {
         this.getErrorMessages = this.getErrorMessages.bind(this);
         this.getFormFieldType = this.getFormFieldType.bind(this);
         this.handleSubmitEvent = this.handleSubmitEvent.bind(this);
+        this.init = this.init.bind(this);
         this.triggerFormFieldValidation = this.triggerFormFieldValidation.bind(this);
         this.validateEmailField = this.validateEmailField.bind(this);
         this.validateMaxField = this.validateMaxField.bind(this);
@@ -26,8 +27,6 @@ class DigeratiFormValidation {
         this.validatePatternField = this.validatePatternField.bind(this);
         this.validateFormField = this.validateFormField.bind(this);
         this.validateRequiredField = this.validateRequiredField.bind(this);
-
-        this.init = this.init.bind(this);
     }
 
     /**
