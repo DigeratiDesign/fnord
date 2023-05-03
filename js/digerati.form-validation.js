@@ -365,7 +365,7 @@ class DigeratiFormValidation {
                 });
             }
         });
-        /* Form Submit IX Trigger Event Listener */
+        /* Form Submit IX Trigger Event Listeners */
         const formSubmitIxTriggers = document.querySelectorAll('[fs-formsubmit-element][data-animation-type="lottie"]');
         formSubmitIxTriggers.forEach((formSubmitIxTrigger) => {
             formSubmitIxTrigger.addEventListener('click', () => {
