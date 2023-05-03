@@ -16,7 +16,6 @@ class DigeratiUtilities {
         this.concatenateEmailAddresses = this.concatenateEmailAddresses.bind(this);
         this.displayCopyrightYear = this.displayCopyrightYear.bind(this);
         this.displaySearchTermInResultsPage = this.displaySearchTermInResultsPage.bind(this);
-        this.focusSearchFormField = this.focusSearchFormField.bind(this);
         this.init = this.init.bind(this);
         this.skipToMainContent = this.skipToMainContent.bind(this);
         this.toggleSearchDisplay = this.toggleSearchDisplay.bind(this);
@@ -79,22 +78,6 @@ class DigeratiUtilities {
                 searchQuery = urlParams.get('query');
             searchTermTarget.innerHTML = searchQuery;
         }
-    }
-    
-    /**
-     * Focus Search Form Field.
-     *
-     * @return {void}
-     */
-    focusSearchFormField() {
-        const trigger = document.querySelector('[digerati-search-form-field-focus="trigger"]');
-        trigger.addEventListener('click', function() {
-            const target = document.querySelector('[digerati-search-form-field-focus="target"]');
-            if(!target) {
-                return;
-            }
-            target.focus();
-        });
     }
   
     /**
