@@ -108,6 +108,7 @@ class DigeratiUtilities {
         this.displaySearchTermInResultsPage();
         this.focusSearchFormField();
         this.skipToMainContent();
+        this.toggleSearchDisplay();
     }
 
     /**
