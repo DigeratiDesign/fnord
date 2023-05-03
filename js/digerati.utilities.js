@@ -89,7 +89,6 @@ class DigeratiUtilities {
         this.concatenateEmailAddresses();
         this.displayCopyrightYear();
         this.displaySearchTermInResultsPage();
-        this.focusSearchFormField();
         this.skipToMainContent();
         this.toggleSearchDisplay();
     }
