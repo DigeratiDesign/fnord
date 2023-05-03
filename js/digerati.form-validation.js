@@ -369,7 +369,6 @@ class DigeratiFormValidation {
         const formSubmitIxTriggers = document.querySelectorAll('[fs-formsubmit-element][data-animation-type="lottie"]');
         formSubmitIxTriggers.forEach((formSubmitIxTrigger) => {
             formSubmitIxTrigger.addEventListener('click', () => {
-                console.log('formSubmitIxTrigger', formSubmitIxTrigger);
                 const successMessage = formSubmitIxTrigger.closest('.w-form-done'),
                     parentSection = formSubmitIxTrigger.closest('section');
                 parentSection.scrollIntoView({behavior: 'smooth'});
