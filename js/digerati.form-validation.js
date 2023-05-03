@@ -104,9 +104,9 @@ class DigeratiFormValidation {
      * @return {void}   
      */
     handleSubmitEvent(e) {
+        e.preventDefault();
         const submitButton = e.target,
             parentForm = submitButton.closest('form');
-        e.preventDefault();
         const formFields = parentForm.querySelectorAll('input:not([type="submit"]), textarea, select');
         let formError = false;
         formFields.forEach((formField) => {
@@ -159,26 +159,44 @@ class DigeratiFormValidation {
         /* Validate `required`` field */
         if (formField.getAttribute('required') !== null) {
             isValidField = this.validateRequiredField(formField, fieldValue, errorMessages);
+            if(!isValidField) {
+                return false;
+            }
         }
         /* Validate `email` field */
         if (formField.getAttribute('type') === 'email') {
             isValidField = this.validateEmailField(formField, fieldValue, errorMessages);
+            if(!isValidField) {
+                return false;
+            }
         }
         /* Validate `min` field */
         if (formField.getAttribute('min') !== null) {
             isValidField = this.validateMinField(formField, fieldValue, errorMessages);
+            if(!isValidField) {
+                return false;
+            }
         }
         /* Validate `max` field */
         if (formField.getAttribute('max') !== null) {
             isValidField = this.validateMaxField(formField, fieldValue, errorMessages);
+            if(!isValidField) {
+                return false;
+            }
         }
         /* Validate `password` field */
         if (formField.getAttribute('type') === 'password') {
             isValidField = this.validatePasswordField(formField, fieldValue, errorMessages);
+            if(!isValidField) {
+                return false;
+            }
         }
         /* Validate `pattern` field */
         if (formField.getAttribute('pattern') !== null) {
             isValidField = this.validatePatternField(formField, fieldValue, errorMessages);
+            if(!isValidField) {
+                return false;
+            }
         }
         return isValidField;
     }
@@ -308,11 +326,9 @@ class DigeratiFormValidation {
         forms.forEach((form) => {
             if(!form.getAttribute('novalidate')) {
                 /* Submit Button Event Listeners */
-                const submitButtons = form.querySelectorAll('input[type=submit]');
-                submitButtons.forEach((submitButton) => {
-                    submitButton.addEventListener('click', this.handleSubmitEvent);
-                    submitButton.addEventListener('touchstart', this.handleSubmitEvent);
-                });
+                const submitButton = form.querySelector('input[type=submit]');
+                submitButton.addEventListener('click', this.handleSubmitEvent);
+                submitButton.addEventListener('touchstart', this.handleSubmitEvent);
                 /* Input and Textarea Field Event Listeners */
                 const inputAndTextareaFields = form.querySelectorAll('input:not([type="submit"]), textarea');
                 inputAndTextareaFields.forEach((formField) => {
