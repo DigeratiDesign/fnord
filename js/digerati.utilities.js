@@ -19,6 +19,7 @@ class DigeratiUtilities {
         this.focusSearchFormField = this.focusSearchFormField.bind(this);
         this.init = this.init.bind(this);
         this.skipToMainContent = this.skipToMainContent.bind(this);
+        this.toggleSearchDisplay();
     }
     
     /**
@@ -131,6 +132,36 @@ class DigeratiUtilities {
             }
             target.attr('tabindex', '-1');
             target.focus();
+        });
+    }
+    
+    /**
+     * Toogle Search Display.
+     *
+     * @return {void} 
+     */
+    toggleSearchDisplay() {
+        const searchForm = document.querySelector('[digerati-toggle-search-display="form"]'),
+            searchFormField = searchForm.querySelector('input[type="search"]'),
+            errorMessage = searchFormField.nextElementSibling,
+            triggers = document.querySelectorAll('[digerati-toggle-search-display="trigger"]');
+        if(!searchForm || !searchFormField || !errorMessage || !triggers) {
+            return;
+        }
+        triggers.forEach((trigger) => {
+            trigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                let positionInfo = searchForm.getBoundingClientRect(),
+                    searchFormOpen = positionInfo.height > 0;
+                if(searchFormOpen) {
+                    searchForm.classList.remove('d--open');
+                    searchFormField.classList.remove('is-invalid');
+                    errorMessage.style.display = 'none';
+                } else {
+                    searchForm.classList.add('d--open');
+                    searchFormField.focus();
+                }
+            });
         });
     }
 }
