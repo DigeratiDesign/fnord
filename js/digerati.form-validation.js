@@ -372,7 +372,7 @@ class DigeratiFormValidation {
                 console.log('formSubmitIxTrigger', formSubmitIxTrigger);
                 const successMessage = formSubmitIxTrigger.closest('.w-form-done'),
                     parentSection = formSubmitIxTrigger.closest('section');
-                parentForm.scrollIntoView({behavior: 'smooth'});
+                parentSection.scrollIntoView({behavior: 'smooth'});
             });
         });
     }
