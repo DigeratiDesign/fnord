@@ -143,9 +143,12 @@ class DigeratiUtilities {
     toggleSearchDisplay() {
         const searchForm = document.querySelector('[digerati-toggle-search-display="form"]'),
             searchFormField = searchForm.querySelector('input[type="search"]'),
-            errorMessage = searchFormField.nextElementSibling,
             triggers = document.querySelectorAll('[digerati-toggle-search-display="trigger"]');
-        if(!searchForm || !searchFormField || !errorMessage || !triggers) {
+        if(!searchForm || !searchFormField || !triggers) {
+            return;
+        }
+        const errorMessage = searchFormField.nextElementSibling;
+        if(!errorMessage) {
             return;
         }
         triggers.forEach((trigger) => {
