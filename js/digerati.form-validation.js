@@ -365,5 +365,13 @@ class DigeratiFormValidation {
                 });
             }
         });
+        /* Form Submit IX Trigger Event Listener */
+        const formSubmitIxTriggers = document.querySelectorAll('[fs-formsubmit-element="ix-trigger"]');
+        formSubmitIxTriggers.forEach((formSubmitIxTrigger) => {
+            formSubmitIxTrigger.addEventListener('click', () => {
+                const parentSection = formSubmitIxTrigger.closest('section');
+                parentSection.scrollIntoView({behavior: 'smooth'});
+            });
+        });
     }
 }
