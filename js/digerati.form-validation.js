@@ -366,11 +366,12 @@ class DigeratiFormValidation {
             }
         });
         /* Form Submit IX Trigger Event Listener */
-        const formSubmitIxTriggers = document.querySelectorAll('[fs-formsubmit-element="ix-trigger"]');
+        const formSubmitIxTriggers = document.querySelectorAll('[fs-formsubmit-element][data-animation-type="lottie"]');
         formSubmitIxTriggers.forEach((formSubmitIxTrigger) => {
             formSubmitIxTrigger.addEventListener('click', () => {
+                console.log('formSubmitIxTrigger', formSubmitIxTrigger);
                 const successMessage = formSubmitIxTrigger.closest('.w-form-done'),
-                    parentForm = successMessage.previousElementSibling;
+                    parentSection = formSubmitIxTrigger.closest('section');
                 parentForm.scrollIntoView({behavior: 'smooth'});
             });
         });
