@@ -369,8 +369,9 @@ class DigeratiFormValidation {
         const formSubmitIxTriggers = document.querySelectorAll('[fs-formsubmit-element="ix-trigger"]');
         formSubmitIxTriggers.forEach((formSubmitIxTrigger) => {
             formSubmitIxTrigger.addEventListener('click', () => {
-                const parentSection = formSubmitIxTrigger.closest('section');
-                parentSection.scrollIntoView({behavior: 'smooth'});
+                const successMessage = formSubmitIxTrigger.closest('.w-form-done'),
+                    parentForm = successMessage.previousElementSibling;
+                parentForm.scrollIntoView({behavior: 'smooth'});
             });
         });
     }
