@@ -89,8 +89,8 @@ ES6 Utilities class for Webflow.
 * [Installation](#utilities-installation)
 * [Concatenate Email Addresses](#utilities-concatenate-email-addresses)
 * [DisplayCopyrightYear](#utilities-display-copyright-year)
-* [Focus Search Form Field](#utilities-focus-search-form-field)
 * [Skip to Main Content](#utilities-skip-to-main-content)
+* [Toggle Search Display](#utilities-toggle-search-display)
 
 ### Installation
 <a id="utilities-installation"></a>
@@ -129,16 +129,6 @@ Add the following **Attribute**":
 
 1. Add `digerati-copyright-year="target"` attribute to the element which will display the copyright year.
 
-### Focus Search Form Field
-<a id="utilities-focus-search-form-field"></a>
-
-Automatically focuses the **search form field** which when the **search form** is displayed.
-
-Add the following **Attributes**:
-
-1. Add `digerati-search-form-field-focus="trigger"` attribute and the `no-transition` class to the element which triggers the display of the **search form**.
-2. Add `digerati-search-form-field-focus="target"` attribute to the **search form field**.
-
 ### Skip to Main Content
 <a id="utilities-skip-to-main-content"></a>
 
@@ -146,3 +136,13 @@ Add _Skip to main content_ accessibility link which is displayed when tabbed.
 
 1. Add `digerati-skip-to-main-content="trigger"` attribute and the `no-transition` class to the element which triggers the display of the **skip to main content link**.
 2. Add `digerati-skip-to-main-content="target"` attribute to the element which should be focused.
+
+### Toggle Search Display
+<a id="utilities-focus-search-form-field"></a>
+
+Automatically focuses the **search form field** which when the **search form** is displayed.
+
+Add the following **Attributes**:
+
+1. Add `digerati-toggle-search="trigger"` attribute and the `no-transition` class to the element(s) which trigger the display of the **search form**.
+2. Add `digerati-toggle-search="form"` attribute to the **search form**.
