@@ -19,7 +19,7 @@ class DigeratiUtilities {
         this.focusSearchFormField = this.focusSearchFormField.bind(this);
         this.init = this.init.bind(this);
         this.skipToMainContent = this.skipToMainContent.bind(this);
-        this.toggleSearchDisplay();
+        this.toggleSearchDisplay = this.toggleSearchDisplay.bind(this);
     }
     
     /**
