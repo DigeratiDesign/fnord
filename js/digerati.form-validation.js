@@ -327,8 +327,8 @@ class DigeratiFormValidation {
             if(!form.getAttribute('novalidate')) {
                 /* Submit Button Event Listeners */
                 const submitButton = form.querySelector('input[type=submit]');
-                submitButton.addEventListener('click', this.handleSubmitEvent, {passive: true});
-                submitButton.addEventListener('touchstart', this.handleSubmitEvent, {passive: true});
+                submitButton.addEventListener('click', this.handleSubmitEvent);
+                submitButton.addEventListener('touchstart', this.handleSubmitEvent);
                 /* Input and Textarea Field Event Listeners */
                 const inputAndTextareaFields = form.querySelectorAll('input:not([type="submit"]), textarea');
                 inputAndTextareaFields.forEach((formField) => {
