@@ -327,8 +327,8 @@ class DigeratiFormValidation {
             if(!form.getAttribute('novalidate')) {
                 /* Submit Button Event Listeners */
                 const submitButton = form.querySelector('input[type=submit]');
-                submitButton.addEventListener('click', this.handleSubmitEvent);
-                submitButton.addEventListener('touchstart', this.handleSubmitEvent);
+                submitButton.addEventListener('click', this.handleSubmitEvent, {passive: true});
+                submitButton.addEventListener('touchstart', this.handleSubmitEvent, {passive: true});
                 /* Input and Textarea Field Event Listeners */
                 const inputAndTextareaFields = form.querySelectorAll('input:not([type="submit"]), textarea');
                 inputAndTextareaFields.forEach((formField) => {
@@ -337,10 +337,10 @@ class DigeratiFormValidation {
                         formField.removeEventListener('keyup', this.triggerFormFieldValidation);
                         formField.addEventListener('blur', () => {
                             this.triggerFormFieldValidation(formField);
-                        });
+                        }, {passive: true});
                         formField.addEventListener('keyup', () => {
                             this.triggerFormFieldValidation(formField)
-                        });
+                        }, {passive: true});
                     });
                 });
                 /* Finsweet Custom Select Event Listeners */
@@ -372,7 +372,7 @@ class DigeratiFormValidation {
                 const successMessage = formSubmitIxTrigger.closest('.w-form-done'),
                     parentSection = formSubmitIxTrigger.closest('section');
                 parentSection.scrollIntoView({behavior: 'smooth'});
-            });
+            }, {passive: true});
         });
     }
 }
