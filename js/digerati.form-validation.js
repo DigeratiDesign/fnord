@@ -327,22 +327,24 @@ class DigeratiFormValidation {
             if(!form.getAttribute('novalidate')) {
                 /* Submit Button Event Listeners */
                 const submitButton = form.querySelector('input[type=submit]');
-                submitButton.addEventListener('click', this.handleSubmitEvent);
-                submitButton.addEventListener('touchstart', this.handleSubmitEvent);
-                /* Input and Textarea Field Event Listeners */
-                const inputAndTextareaFields = form.querySelectorAll('input:not([type="submit"]), textarea');
-                inputAndTextareaFields.forEach((formField) => {
-                    formField.addEventListener('focus', () => {
-                        formField.removeEventListener('blur', this.triggerFormFieldValidation);
-                        formField.removeEventListener('keyup', this.triggerFormFieldValidation);
-                        formField.addEventListener('blur', () => {
-                            this.triggerFormFieldValidation(formField);
-                        });
-                        formField.addEventListener('keyup', () => {
-                            this.triggerFormFieldValidation(formField)
+                if(!submitButton) {
+                    submitButton.addEventListener('click', this.handleSubmitEvent);
+                    submitButton.addEventListener('touchstart', this.handleSubmitEvent);
+                    /* Input and Textarea Field Event Listeners */
+                    const inputAndTextareaFields = form.querySelectorAll('input:not([type="submit"]), textarea');
+                    inputAndTextareaFields.forEach((formField) => {
+                        formField.addEventListener('focus', () => {
+                            formField.removeEventListener('blur', this.triggerFormFieldValidation);
+                            formField.removeEventListener('keyup', this.triggerFormFieldValidation);
+                            formField.addEventListener('blur', () => {
+                                this.triggerFormFieldValidation(formField);
+                            });
+                            formField.addEventListener('keyup', () => {
+                                this.triggerFormFieldValidation(formField)
+                            });
                         });
                     });
-                });
+                }
                 /* Finsweet Custom Select Event Listeners */
                 const selectFields = form.querySelectorAll('select');
                 selectFields.forEach((formField) => {
