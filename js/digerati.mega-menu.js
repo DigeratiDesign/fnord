@@ -13,11 +13,39 @@ class DigeratiMegaMenu {
      * @return {void} 
      */
     constructor() {
-    	this.hide = this.hideMegaMenu.bind(this);
+        this.get = this.get.bind(this);
+    	this.hide = this.hide.bind(this);
     	this.init = this.init.bind(this);
-    	this.show = this.showMegaMenu.bind(this);
+    	this.show = this.show.bind(this);
     }
+    
+    /**
+     * Get.
+     * 
+     * @return {object}
+     */
+    get(this) {
+        let list = this.querySelector('.w-dropdown-list'),
+			toggle = this.querySelector('.w-dropdown-toggle'),
+            menuItem = {
+                toggle: toggle,
+                list: list
+            };
+        return elements;
+    }   
 
+	/**
+	 * Hide.
+	 *
+	 * @return {void} 
+	 */
+	hide() {
+        let menuItem = this.get(this);
+		menuItem.toggle.setAttribute('aria-expanded', false);
+		menuItem.toggle.classList.remove('w--open');
+		menuItem.list.classList.remove('w--open');
+	}
+    
     /**
      * Initialise.
      *
@@ -45,34 +73,16 @@ class DigeratiMegaMenu {
 	        });
       	}
     }
-
+    
     /**
-     * Show Mega Menu.
+     * Show.
      *
      * @return {void} 
      */
     show() {
-		let menuItem = this,
-			megaMenu = menuItem.querySelector('.w-dropdown-list'),
-			dropDownToggle = menuItem.querySelector('.w-dropdown-toggle'),
-			dropDownIcon = menuItem.querySelector('.dropdown-icon');
-		dropDownToggle.setAttribute('aria-expanded', true);
-		dropDownToggle.classList.add('w--open');
-		megaMenu.classList.add('w--open');
-	}
-
-	/**
-	 * Hide Mega Menu.
-	 *
-	 * @return {void} 
-	 */
-	hide() {
-		let menuItem = this,
-			megaMenu = menuItem.querySelector('.w-dropdown-list'),
-			dropDownToggle = menuItem.querySelector('.w-dropdown-toggle'),
-			dropDownIcon = menuItem.querySelector('.dropdown-icon');
-		dropDownToggle.setAttribute('aria-expanded', false);
-		dropDownToggle.classList.remove('w--open');
-		megaMenu.classList.remove('w--open');
+        let menuItem = this.get(this);
+		menuItem.toggle.setAttribute('aria-expanded', true);
+		menuItem.toggle.classList.add('w--open');
+		menuItem.list.classList.add('w--open');
 	}
 }
