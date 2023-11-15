@@ -358,9 +358,10 @@ class DigeratiFormValidation {
                             e.preventDefault();
                             /*
                             const parentForm = formField.closest('form'),
-                                submitButton = parentForm.querySelector('input[type="submit"]')*/;
+                                submitButton = parentForm.querySelector('input[type="submit"]');
                             formField.dispatchEvent(new Event('change'));
-                            /*submitButton.dispatchEvent(new Event('click'));*/
+                            submitButton.dispatchEvent(new Event('click'));
+                            */
                         }
                     });
                 });
