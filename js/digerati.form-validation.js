@@ -351,20 +351,20 @@ class DigeratiFormValidation {
                     });
                 });
                 /* Form Field Event Listeners */
+                /*
                 const formFields = form.querySelectorAll('input, textarea');
                 formFields.forEach((formField) => {
                     formField.addEventListener('keypress', (e) => {
                         if (e.keyCode === 13) {
                             e.preventDefault();
-                            /*
                             const parentForm = formField.closest('form'),
                                 submitButton = parentForm.querySelector('input[type="submit"]');
                             formField.dispatchEvent(new Event('change'));
                             submitButton.dispatchEvent(new Event('click'));
-                            */
                         }
                     });
                 });
+                */
             }
         });
         /* Form Submit IX Trigger Event Listeners */
