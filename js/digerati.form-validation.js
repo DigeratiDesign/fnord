@@ -59,8 +59,8 @@ class DigeratiFormValidation {
             if(formFieldType === 'textarea' && formField.name == 'h-captcha-response') {
                 console.log('hCaptcha textarea');
                 /* hCaptcha */
-                errorElements.border = formField.parentElement.parentElement;
-                errorElements.message = errorElements.border.nextElementSibling;
+                errorElements.border = formField.parentElement;
+                errorElements.message = formField.parentElement.nextElementSibling;
                 console.log(errorElements);
             } else {
                 console.log('Textarea or input field');
