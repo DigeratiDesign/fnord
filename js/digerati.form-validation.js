@@ -56,8 +56,8 @@ class DigeratiFormValidation {
     getErrorElements(formField, formFieldType) {
         let errorElements = {};
         if (formFieldType !== 'select') {
-            if(formFieldType === 'textarea' && formField.id == 'g-recaptcha-response') {
-                console.log('ReCaptcha textarea');
+            if(formFieldType === 'textarea' && formField.id == 'h-captcha-response') {
+                console.log('hCaptcha textarea');
                 /* ReCaptcha */
                 errorElements.border = formField.parentElement.parentElement;
                 errorElements.message = errorElements.border.nextElementSibling;
