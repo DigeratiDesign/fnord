@@ -99,23 +99,20 @@ class DigeratiUtilities {
      * @return {void}             
      */
     skipToMainContent() {
-        const trigger = document.querySelector('[digerati-skip-to-main-content="trigger"]');
-        if(!trigger) {
-            return;
+        const trigger = document.querySelector('[digerati-skip-to-main-content="trigger"]'),
+              target  = document.querySelector('[digerati-skip-to-main-content="target"]');
+        if(trigger && target) {
+            ['click', 'keypress'].forEach((event) => {
+                trigger.addEventListener(event, (e) => {
+                    if(e.type === 'keydown' && e.which !== 13) {
+                        return;
+                    }
+                    e.preventDefault();
+                    target.setAttribute('tabindex', '-1');
+                    target.focus();
+                });
+            }); 
         }
-        trigger.addEventListener('click', function(e) {
-            if (e.type === 'keydown' && e.which !== 13) {
-                return;
-            }
-            e.preventDefault();
-            const target = $('[digerati-skip-to-main-content="target"]');
-            //const target = document.querySelector('[digerati-skip-to-main-content="target"]');
-            if(!target) {
-                return;
-            }
-            target.attr('tabindex', '-1');
-            target.focus();
-        });
     }
     
     /**
